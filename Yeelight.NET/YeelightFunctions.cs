@@ -7,16 +7,18 @@ namespace YeelightNET
 
     /*available methods fo Yeelight Led Celling Light:
 
+     "+" means that this method implemented
+
          get_prop 
-         set_default 
-         set_power 
-         toggle 
-         set_bright 
+       + set_default 
+       + set_power 
+       + toggle 
+       + set_bright 
          set_scene 
          cron_add / cron_get / cron_del 
          start_cf / stop_cf 
-         set_ct_abx (color temp int: 1700 - 6500)
-         set_name 
+       + set_ct_abx (color temp int: 1700 - 6500)
+       + set_name 
          set_adjust 
          adjust_bright 
          adjust_ct    
@@ -25,6 +27,8 @@ namespace YeelightNET
     public static class YeelightFunctions
     {
 
+        
+        //toggle
         public static Device Toggle(this Device device)
         {
             string newState = "on";
@@ -34,7 +38,7 @@ namespace YeelightNET
             if (IsSuccesful) device[DeviceProperty.Power] = newState;
             return device;
         }
-
+        //set_default
         public static Device SetDefault(this Device device)
         {
             Yeelight.SendCommand(device, 0, "set_default", new dynamic[] { });
@@ -42,6 +46,7 @@ namespace YeelightNET
             return device;
         }
 
+        //set_power
         public static Device Power(this Device device, string state, int mode = 0, string effect = "smooth", int duration = 500)
         {
             // mode: 0 - Normal; 1- Sun mode; 5 - Night mode
@@ -63,18 +68,25 @@ namespace YeelightNET
                 device.WaitCmd(delay);
             }
 
-            return device;
+       return device;
         }
 
 
-        public static Device SetColorTemperature(this Device device, int temperature, int duration = 500)
+        /// <summary>
+        /// set_ct_abx
+        /// Этот метод изменяет температуру света в диапазоне 1700-6500K
+        /// </summary>
+        /// <param name="temperature">Цветовая температура</param>
+        /// <param name="effect">Эффект применения: "sudden" - немедленное применение, параметр "duration" не важен: "smooth" - плавное применение, регулируется параметром "duration"</param>
+        /// <param name="duration">Время в мс, за которое применяется эффект. Актуально, только для effect="smooth"</param>
+        public static Device SetColorTemperature(this Device device, int temperature, string effect = "smooth" ,int duration = 500)
         {
             if (!(temperature >= 1700 && temperature <= 6500))
                 return device;
 
             if (device.IsPowered)
             {
-                bool isSuccesful = Yeelight.SendCommand(device, 0, "set_ct_abx", new dynamic[] { temperature, "smooth", duration });
+                bool isSuccesful = Yeelight.SendCommand(device, 0, "set_ct_abx", new dynamic[] { temperature, effect, duration });
 
                 if (isSuccesful)
                 {
@@ -85,7 +97,7 @@ namespace YeelightNET
 
             return device;
         }
-
+        //set_bright
         public static Device SetBrightness(this Device device, int brightness, string effect = "smooth", int duration = 500)
         {
             brightness = Math.Max(1, Math.Min(100, Math.Abs(brightness)));
@@ -101,7 +113,7 @@ namespace YeelightNET
 
             return device;
         }
-
+        //set_name
         public static Device SetName(this Device device, string name)
         {
             var isSuccesful = Yeelight.SendCommand(device, 0, "set_name", new dynamic[] { name });

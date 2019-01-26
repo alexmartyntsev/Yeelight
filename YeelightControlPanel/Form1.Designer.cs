@@ -37,7 +37,10 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
+            this.trackBarCT = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarCT)).BeginInit();
             this.SuspendLayout();
             // 
             // btnScan
@@ -120,7 +123,7 @@
             // trackBar1
             // 
             this.trackBar1.Enabled = false;
-            this.trackBar1.Location = new System.Drawing.Point(12, 372);
+            this.trackBar1.Location = new System.Drawing.Point(9, 289);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(560, 45);
@@ -132,17 +135,44 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 356);
+            this.label1.Location = new System.Drawing.Point(10, 273);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Set brightness";
+            // 
+            // trackBarCT
+            // 
+            this.trackBarCT.Enabled = false;
+            this.trackBarCT.LargeChange = 1000;
+            this.trackBarCT.Location = new System.Drawing.Point(13, 356);
+            this.trackBarCT.Maximum = 6500;
+            this.trackBarCT.Minimum = 1700;
+            this.trackBarCT.Name = "trackBarCT";
+            this.trackBarCT.Size = new System.Drawing.Size(556, 45);
+            this.trackBarCT.SmallChange = 400;
+            this.trackBarCT.TabIndex = 11;
+            this.trackBarCT.Tag = "elements";
+            this.trackBarCT.TickFrequency = 400;
+            this.trackBarCT.Value = 1700;
+            this.trackBarCT.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarCT_MouseUp);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 337);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Set color temperature";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.trackBarCT);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.comboBox1);
@@ -155,6 +185,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarCT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +201,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar trackBarCT;
+        private System.Windows.Forms.Label label2;
     }
 }
 

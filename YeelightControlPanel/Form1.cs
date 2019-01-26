@@ -72,6 +72,7 @@ namespace YeelightControlPanel
                 
                 richTextBoxStatus.Text = info;
                 trackBar1.Value = Devices[0][DeviceProperty.Brightness];
+                trackBarCT.Value = Devices[0][DeviceProperty.ColorTemperature];
                 btnPower.Text = string.Format("Power({0})", Devices[0][DeviceProperty.Power]);
             }
             else
@@ -111,6 +112,10 @@ namespace YeelightControlPanel
             Devices[0].Power("off");
         }
 
-        
+
+        private void trackBarCT_MouseUp(object sender, MouseEventArgs e)
+        {
+            Devices[0].SetColorTemperature(trackBarCT.Value, "sudden");
+        }
     }
 }
