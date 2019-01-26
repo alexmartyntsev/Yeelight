@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnScan = new System.Windows.Forms.Button();
             this.btnPower = new System.Windows.Forms.Button();
             this.richTextBoxStatus = new System.Windows.Forms.RichTextBox();
@@ -39,13 +40,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.trackBarCT = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarCT)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnScan
             // 
-            this.btnScan.Location = new System.Drawing.Point(686, 9);
+            this.btnScan.Location = new System.Drawing.Point(686, 54);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(75, 23);
             this.btnScan.TabIndex = 1;
@@ -56,7 +61,7 @@
             // btnPower
             // 
             this.btnPower.Enabled = false;
-            this.btnPower.Location = new System.Drawing.Point(12, 234);
+            this.btnPower.Location = new System.Drawing.Point(12, 279);
             this.btnPower.Name = "btnPower";
             this.btnPower.Size = new System.Drawing.Size(75, 23);
             this.btnPower.TabIndex = 2;
@@ -67,7 +72,7 @@
             // 
             // richTextBoxStatus
             // 
-            this.richTextBoxStatus.Location = new System.Drawing.Point(12, 12);
+            this.richTextBoxStatus.Location = new System.Drawing.Point(12, 57);
             this.richTextBoxStatus.Name = "richTextBoxStatus";
             this.richTextBoxStatus.Size = new System.Drawing.Size(668, 156);
             this.richTextBoxStatus.TabIndex = 4;
@@ -75,7 +80,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(687, 144);
+            this.buttonSave.Location = new System.Drawing.Point(687, 189);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 5;
@@ -87,7 +92,7 @@
             // buttonPowerON
             // 
             this.buttonPowerON.Enabled = false;
-            this.buttonPowerON.Location = new System.Drawing.Point(13, 175);
+            this.buttonPowerON.Location = new System.Drawing.Point(13, 220);
             this.buttonPowerON.Name = "buttonPowerON";
             this.buttonPowerON.Size = new System.Drawing.Size(75, 23);
             this.buttonPowerON.TabIndex = 6;
@@ -99,7 +104,7 @@
             // buttonPowerOFF
             // 
             this.buttonPowerOFF.Enabled = false;
-            this.buttonPowerOFF.Location = new System.Drawing.Point(13, 205);
+            this.buttonPowerOFF.Location = new System.Drawing.Point(13, 250);
             this.buttonPowerOFF.Name = "buttonPowerOFF";
             this.buttonPowerOFF.Size = new System.Drawing.Size(75, 23);
             this.buttonPowerOFF.TabIndex = 7;
@@ -113,7 +118,7 @@
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.Location = new System.Drawing.Point(94, 174);
+            this.comboBox1.Location = new System.Drawing.Point(94, 219);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(137, 21);
             this.comboBox1.TabIndex = 9;
@@ -123,7 +128,7 @@
             // trackBar1
             // 
             this.trackBar1.Enabled = false;
-            this.trackBar1.Location = new System.Drawing.Point(9, 289);
+            this.trackBar1.Location = new System.Drawing.Point(9, 334);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(560, 45);
@@ -135,7 +140,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 273);
+            this.label1.Location = new System.Drawing.Point(10, 318);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 10;
@@ -145,7 +150,7 @@
             // 
             this.trackBarCT.Enabled = false;
             this.trackBarCT.LargeChange = 1000;
-            this.trackBarCT.Location = new System.Drawing.Point(13, 356);
+            this.trackBarCT.Location = new System.Drawing.Point(13, 401);
             this.trackBarCT.Maximum = 6500;
             this.trackBarCT.Minimum = 1700;
             this.trackBarCT.Name = "trackBarCT";
@@ -160,11 +165,36 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 337);
+            this.label2.Location = new System.Drawing.Point(13, 382);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Set color temperature";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -182,10 +212,15 @@
             this.Controls.Add(this.richTextBoxStatus);
             this.Controls.Add(this.btnPower);
             this.Controls.Add(this.btnScan);
+            this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Yeelight control panel";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarCT)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,6 +238,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar trackBarCT;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

@@ -117,5 +117,17 @@ namespace YeelightControlPanel
         {
             Devices[0].SetColorTemperature(trackBarCT.Value, "sudden");
         }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings settingsForm = new Settings();
+            settingsForm.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About aboutForm = new About();
+            aboutForm.Show();
+        }
     }
 }
