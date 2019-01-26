@@ -4,6 +4,24 @@ using System.Threading.Tasks;
 namespace YeelightNET
 {
     //Device extensions
+
+    /*available methods fo Yeelight Led Celling Light:
+
+         get_prop 
+         set_default 
+         set_power 
+         toggle 
+         set_bright 
+         set_scene 
+         cron_add / cron_get / cron_del 
+         start_cf / stop_cf 
+         set_ct_abx (color temp int: 1700 - 6500)
+         set_name 
+         set_adjust 
+         adjust_bright 
+         adjust_ct    
+         
+    */
     public static class YeelightFunctions
     {
 
@@ -17,9 +35,18 @@ namespace YeelightNET
             return device;
         }
 
+        public static Device SetDefault(this Device device)
+        {
+            Yeelight.SendCommand(device, 0, "set_default", new dynamic[] { });
+
+            return device;
+        }
+
         public static Device Power(this Device device, string state, int mode = 0, string effect = "smooth", int duration = 500)
         {
-            // mode: 0 - Normal; 5 - Night mode
+            // mode: 0 - Normal; 1- Sun mode; 5 - Night mode
+
+            if (mode != 0 && mode != 1 && mode != 5) mode = 0; //checking for available modes
 
             Yeelight.SendCommand(device, 0, "set_power", new dynamic[] {state, effect, duration, mode });
 
@@ -53,39 +80,6 @@ namespace YeelightNET
                 {
                     device[DeviceProperty.ColorTemperature] = temperature;
                     device[DeviceProperty.ColorMode] = 2;
-                }
-            }
-
-            return device;
-        }
-
-        public static Device SetRgbColor(this Device device, int r, int g, int b, int duration = 500)
-        {
-            int rgb = (r * 65536) + (g * 256) + b;
-
-            if (device.IsPowered)
-            {
-                bool isSuccesful = Yeelight.SendCommand(device, 0, "set_rgb", new dynamic[] { rgb, "smooth", duration });
-
-                if (isSuccesful)
-                {
-                    device[DeviceProperty.RGB] = rgb;
-                    device[DeviceProperty.ColorMode] = 1;
-                }
-            }
-
-            return device;
-        }
-        public static Device SetRgbColor(this Device device, int rgb, int duration = 500)
-        {
-            if (device.IsPowered)
-            {
-                bool isSuccesful = Yeelight.SendCommand(device, 0, "set_rgb", new dynamic[] { rgb, "smooth", duration });
-
-                if (isSuccesful)
-                {
-                    device[DeviceProperty.RGB] = rgb;
-                    device[DeviceProperty.ColorMode] = 1;
                 }
             }
 
