@@ -6,17 +6,14 @@ namespace YeelightNET
     //Device extensions
     public static class YeelightFunctions
     {
-        public static Device Toggle(this Device device, int duration = 500)
+
+        public static Device Toggle(this Device device)
         {
             string newState = "on";
-            if (device.IsPowered)
-                newState = "off";
+            if (device.IsPowered) newState = "off";
 
-            bool isSuccesful = Yeelight.SendCommand(device, 0, "set_power", new dynamic[] { newState, "smooth", duration });
-
-            if (isSuccesful)
-                device[DeviceProperty.Power] = newState;
-
+            bool IsSuccesful = Yeelight.SendCommand(device, 0, "toggle", new dynamic[] { });
+            if (IsSuccesful) device[DeviceProperty.Power] = newState;
             return device;
         }
 
@@ -33,30 +30,15 @@ namespace YeelightNET
         {
             for (int i = 0; i < count; i++)
             {
-                device.Toggle(duration);
+                device.Toggle();
                 device.WaitCmd(delay);
-                device.Toggle(duration);
+                device.Toggle();
                 device.WaitCmd(delay);
             }
 
             return device;
         }
 
-        public static Device MagicSunrise(this Device device, int delay = 300)
-        {
-            if (!device.IsPowered)
-            {
-                device.Toggle(); //power need
-                device.SetBrightness(1, "sudden");
-                for (var i = 2; i < 100; i++)
-                {
-                    device.SetBrightness(i, "smooth", delay);
-
-                }
-            }
-
-            return device;
-        }
 
         public static Device SetColorTemperature(this Device device, int temperature, int duration = 500)
         {
