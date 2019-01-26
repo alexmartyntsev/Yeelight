@@ -65,7 +65,7 @@ namespace YeelightNET
                             Console.WriteLine(exc.ToString());
                             continue;
                         }
-                        Task.Delay(200).Wait();
+                        Task.Delay(450).Wait();
                     }
                 });
             }

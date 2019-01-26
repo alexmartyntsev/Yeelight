@@ -43,6 +43,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBoxBright = new System.Windows.Forms.TextBox();
+            this.textBoxCT = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarCT)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -50,7 +61,7 @@
             // 
             // btnScan
             // 
-            this.btnScan.Location = new System.Drawing.Point(686, 54);
+            this.btnScan.Location = new System.Drawing.Point(494, 165);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(75, 23);
             this.btnScan.TabIndex = 1;
@@ -72,15 +83,15 @@
             // 
             // richTextBoxStatus
             // 
-            this.richTextBoxStatus.Location = new System.Drawing.Point(12, 57);
+            this.richTextBoxStatus.Location = new System.Drawing.Point(12, 27);
             this.richTextBoxStatus.Name = "richTextBoxStatus";
-            this.richTextBoxStatus.Size = new System.Drawing.Size(668, 156);
+            this.richTextBoxStatus.Size = new System.Drawing.Size(557, 132);
             this.richTextBoxStatus.TabIndex = 4;
             this.richTextBoxStatus.Text = "";
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(687, 189);
+            this.buttonSave.Location = new System.Drawing.Point(738, 220);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 5;
@@ -131,7 +142,7 @@
             this.trackBar1.Location = new System.Drawing.Point(9, 334);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(560, 45);
+            this.trackBar1.Size = new System.Drawing.Size(414, 45);
             this.trackBar1.TabIndex = 3;
             this.trackBar1.Tag = "elements";
             this.trackBar1.TickFrequency = 10;
@@ -154,7 +165,7 @@
             this.trackBarCT.Maximum = 6500;
             this.trackBarCT.Minimum = 1700;
             this.trackBarCT.Name = "trackBarCT";
-            this.trackBarCT.Size = new System.Drawing.Size(556, 45);
+            this.trackBarCT.Size = new System.Drawing.Size(410, 45);
             this.trackBarCT.SmallChange = 400;
             this.trackBarCT.TabIndex = 11;
             this.trackBarCT.Tag = "elements";
@@ -178,7 +189,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(821, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -196,11 +207,139 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(576, 334);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Tag = "elements";
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(657, 334);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Tag = "elements";
+            this.button2.Text = "-";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(576, 401);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 16;
+            this.button3.Tag = "elements";
+            this.button3.Text = "+";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Enabled = false;
+            this.button4.Location = new System.Drawing.Point(657, 401);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 17;
+            this.button4.Tag = "elements";
+            this.button4.Text = "-";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Enabled = false;
+            this.button5.Location = new System.Drawing.Point(738, 334);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 18;
+            this.button5.Tag = "elements";
+            this.button5.Text = "+++";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Enabled = false;
+            this.button6.Location = new System.Drawing.Point(738, 401);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 19;
+            this.button6.Tag = "elements";
+            this.button6.Text = "+++";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textBoxBright
+            // 
+            this.textBoxBright.Location = new System.Drawing.Point(430, 334);
+            this.textBoxBright.Name = "textBoxBright";
+            this.textBoxBright.Size = new System.Drawing.Size(64, 20);
+            this.textBoxBright.TabIndex = 20;
+            this.textBoxBright.TextChanged += new System.EventHandler(this.textBoxBright_TextChanged);
+            this.textBoxBright.Leave += new System.EventHandler(this.textBoxBright_Leave);
+            // 
+            // textBoxCT
+            // 
+            this.textBoxCT.Location = new System.Drawing.Point(429, 401);
+            this.textBoxCT.Name = "textBoxCT";
+            this.textBoxCT.Size = new System.Drawing.Size(65, 20);
+            this.textBoxCT.TabIndex = 21;
+            this.textBoxCT.TextChanged += new System.EventHandler(this.textBoxCT_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(500, 339);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "%";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(500, 406);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "K";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(429, 220);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 24;
+            this.button7.Text = "Blink";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(821, 450);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxCT);
+            this.Controls.Add(this.textBoxBright);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.trackBarCT);
             this.Controls.Add(this.label1);
@@ -241,6 +380,17 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBoxBright;
+        private System.Windows.Forms.TextBox textBoxCT;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button7;
     }
 }
 

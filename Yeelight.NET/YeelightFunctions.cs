@@ -19,30 +19,74 @@ namespace YeelightNET
          start_cf / stop_cf 
        + set_ct_abx (color temp int: 1700 - 6500)
        + set_name 
-         set_adjust 
-         adjust_bright 
-         adjust_ct    
+       + set_adjust 
+       + adjust_bright 
+       + adjust_ct    
          
     */
     public static class YeelightFunctions
     {
 
-        
+
         //toggle
         public static Device Toggle(this Device device)
         {
-            string newState = "on";
-            if (device.IsPowered) newState = "off";
+            
 
-            bool IsSuccesful = Yeelight.SendCommand(device, 0, "toggle", new dynamic[] { });
-            if (IsSuccesful) device[DeviceProperty.Power] = newState;
+            Yeelight.SendCommand(device, 0, "toggle", new dynamic[] { });
+            
             return device;
         }
+
         //set_default
         public static Device SetDefault(this Device device)
         {
             Yeelight.SendCommand(device, 0, "set_default", new dynamic[] { });
 
+            return device;
+        }
+        /// <summary>
+        /// Изменяем цветовую температуру на процент от 0 до -100% или от 0 до 100%
+        /// </summary>
+        /// <param name="device">Устройство</param>
+        /// <param name="percantage">Процент изменения </param>
+        /// <param name="duration">Время в мс, за которое применится эффект</param>
+        /// <returns></returns>
+        public static Device adjustCT(this Device device, int percantage, int duration = 500)
+        {
+            if (percantage < -100) percantage = -100;
+            if (percantage > 100) percantage = 100;
+
+            Yeelight.SendCommand(device, 0, "adjust_ct", new dynamic[]{percantage, duration});
+
+            return device;
+        }
+        /// <summary>
+        /// Изменяем яркость на процент от 0 до -100% или от 0 до 100%
+        /// </summary>
+        /// <param name="device">Устройство</param>
+        /// <param name="percantage">Процент измненения</param>
+        /// <param name="duration">Время в мс, за которое применится эффект</param>
+        /// <returns></returns>
+        public static Device adjustBright(this Device device, int percantage, int duration = 500)
+        {
+            if (percantage < -100) percantage = -100;
+            if (percantage > 100) percantage = 100;
+
+            Yeelight.SendCommand(device, 0, "adjust_bright", new dynamic[] { percantage, duration });
+
+            return device;
+        }
+        /// <summary>
+        /// Изменение яркости и температуры как делает это пульт.
+        /// </summary>
+        /// <param name="device">Устройство</param>
+        /// <param name="action">"increase", "decrease", "circle" - действия (прибавить, убавить, прибавление по кругу</param>
+        /// <param name="property">"bright", "ct" - изменяемое свойство</param>
+        /// <returns></returns>
+        public static Device setAdjust(this Device device, string action, string property)
+        {
+            Yeelight.SendCommand(device, 0, "set_adjust", new dynamic[]{ action, property});
             return device;
         }
 
@@ -58,7 +102,7 @@ namespace YeelightNET
             return device;
         }
 
-        public static Device Blink(this Device device, int duration = 500, int delay = 4000, int count = 2)
+        public static Device Blink(this Device device, int delay = 500, int count = 2)
         {
             for (int i = 0; i < count; i++)
             {

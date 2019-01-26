@@ -67,13 +67,16 @@ namespace YeelightControlPanel
             if (deviceCount > 0)
             {
                 EnableElements();
-                String info = String.Format("Name: {0}\n Power: {1}\n ID: {2}\n SUPPORT: {3}", Devices[0][DeviceProperty.Name], Devices[0][DeviceProperty.Power], Devices[0][DeviceProperty.Id], Devices[0][DeviceProperty.Support]);
+                String info = String.Format("Name: {0}\n IP: {1}\n ID: {2}", Devices[0][DeviceProperty.Name], Devices[0][DeviceProperty.Location], Devices[0][DeviceProperty.Id]);
              
                 
                 richTextBoxStatus.Text = info;
                 trackBar1.Value = Devices[0][DeviceProperty.Brightness];
                 trackBarCT.Value = Devices[0][DeviceProperty.ColorTemperature];
                 btnPower.Text = string.Format("Power({0})", Devices[0][DeviceProperty.Power]);
+
+                textBoxBright.Text = Devices[0][DeviceProperty.Brightness].ToString();
+                textBoxCT.Text = Devices[0][DeviceProperty.ColorTemperature].ToString();
             }
             else
             {
@@ -128,6 +131,57 @@ namespace YeelightControlPanel
         {
             About aboutForm = new About();
             aboutForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Devices[0].setAdjust("increase", "bright");
+            textBoxBright.Text = Devices[0][DeviceProperty.Brightness].ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Devices[0].setAdjust("decrease", "bright");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Devices[0].setAdjust("circle", "bright");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Devices[0].setAdjust("increase", "ct");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Devices[0].setAdjust("decrease", "ct");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Devices[0].setAdjust("circle", "ct");
+        }
+
+        private void textBoxBright_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBoxCT_TextChanged(object sender, EventArgs e)
+        {
+            trackBarCT.Value = int.Parse(textBoxCT.Text);
+        }
+
+        private void textBoxBright_Leave(object sender, EventArgs e)
+        {
+            trackBar1.Value = int.Parse(textBoxBright.Text);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Devices[0].Blink(250, 3);
         }
     }
 }
